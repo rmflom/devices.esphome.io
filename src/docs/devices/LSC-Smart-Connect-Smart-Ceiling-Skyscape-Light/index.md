@@ -23,7 +23,10 @@ This is the LSC Smart Connect **Smart Ceiling Skyscape Light**, sold by Action. 
 - 2.4 GHz Wi-Fi
 - Four advertised Skyscape modes
 
-The tested hardware revision contains a **BK7238** Wi-Fi module connected to a separate Tuya MCU over UART. The module itself is marked `CBU`, which would normally suggest a BK7231N-based CBU module, but this unit was positively identified as BK7238. Use the Tuya T1 BK7238 board definition shown below rather than assuming the SoC from the module marking.
+The tested hardware revision contains a **BK7238** Wi-Fi module connected to a separate Tuya MCU over UART.
+The module itself is marked `CBU`, which would normally suggest a BK7231N-based CBU module, but this unit was
+positively identified as BK7238. Use the Tuya T1 BK7238 board definition shown below rather than assuming the SoC
+from the module marking.
 
 Hardware revisions may differ, so verify the SoC before flashing.
 
@@ -65,24 +68,35 @@ The UART runs at 9600 baud.
 
 ## Flashing
 
-The light must be **fully disassembled** to access the Wi-Fi module and its serial connections. Disconnect the light from mains power before opening it or doing any soldering work.
+The light must be **fully disassembled** to access the Wi-Fi module and its serial connections. Disconnect the light
+from mains power before opening it or doing any soldering work.
 
-Although the module is labelled `CBU`, the tested unit contains a **BK7238** SoC. Do not select a BK7231N board definition solely from the CBU marking.
+Although the module is labelled `CBU`, the tested unit contains a **BK7238** SoC. Do not select a BK7231N board
+definition solely from the CBU marking.
 
-The BK7238 serial RX/TX lines are shared with the separate Tuya MCU, and the module is powered from the lamp electronics. For reliable serial flashing, the BK7238 needs to be electrically isolated from the rest of the controller. There are two practical approaches:
+The BK7238 serial RX/TX lines are shared with the separate Tuya MCU, and the module is powered from the lamp
+electronics. For reliable serial flashing, the BK7238 needs to be electrically isolated from the rest of the
+controller. There are two practical approaches:
 
 1. **Remove the Wi-Fi module from the PCB with hot air** and flash it separately.
-2. Leave the module fitted, but **cut or otherwise disconnect the RX and TX lines between the BK7238 module and the Tuya MCU, and isolate the module VCC line**. The module can then be powered independently from the flashing adapter while programming.
+2. Leave the module fitted, but **cut or otherwise disconnect the RX and TX lines between the BK7238 module and the
+   Tuya MCU, and isolate the module VCC line**. The module can then be powered independently from the flashing
+   adapter while programming.
 
-After flashing, restore the RX, TX and VCC connections so ESPHome can communicate with the original Tuya MCU over UART.
+After flashing, restore the RX, TX and VCC connections so ESPHome can communicate with the original Tuya MCU over
+UART.
 
 A full flash backup with `ltchiptool` is strongly recommended before replacing the stock firmware.
 
 ## AI-Assisted Reverse Engineering
 
-AI assistance was a significant part of making this ESPHome configuration work. ChatGPT was used extensively during the reverse-engineering process to interpret `ltchiptool` output and UART logs, correlate the supplied remote-control buttons with Tuya datapoint changes, identify the light's operating modes and built-in effects, and iteratively build and refine the ESPHome configuration.
+AI assistance was a significant part of making this ESPHome configuration work. ChatGPT was used extensively during
+the reverse-engineering process to interpret `ltchiptool` output and UART logs, correlate the supplied remote-control
+buttons with Tuya datapoint changes, identify the light's operating modes and built-in effects, and iteratively build
+and refine the ESPHome configuration.
 
-The final datapoint mappings and behaviour documented here were validated on the physical device through repeated flashing and functional testing.
+The final datapoint mappings and behaviour documented here were validated on the physical device through repeated
+flashing and functional testing.
 
 ## Configuration
 
