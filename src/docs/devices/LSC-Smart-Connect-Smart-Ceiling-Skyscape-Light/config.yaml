@@ -53,6 +53,54 @@ light:
     # DP21 = 0 selects the effect mode and DP64 selects the effect.
     effects:
       - lambda:
+          name: "Sunrise"
+          update_interval: 60s
+          lambda: |-
+            if (initial_run) {
+              id(tuya_mcu).set_boolean_datapoint_value(20, true);
+              id(tuya_mcu).set_enum_datapoint_value(21, 0);
+              id(tuya_mcu).force_set_raw_datapoint_value(
+                64, std::vector<uint8_t>{0x00, 0x01}
+              );
+            }
+
+      - lambda:
+          name: "Cloudy Blue Sky"
+          update_interval: 60s
+          lambda: |-
+            if (initial_run) {
+              id(tuya_mcu).set_boolean_datapoint_value(20, true);
+              id(tuya_mcu).set_enum_datapoint_value(21, 0);
+              id(tuya_mcu).force_set_raw_datapoint_value(
+                64, std::vector<uint8_t>{0x00, 0x03}
+              );
+            }
+
+      - lambda:
+          name: "Sunset"
+          update_interval: 60s
+          lambda: |-
+            if (initial_run) {
+              id(tuya_mcu).set_boolean_datapoint_value(20, true);
+              id(tuya_mcu).set_enum_datapoint_value(21, 0);
+              id(tuya_mcu).force_set_raw_datapoint_value(
+                64, std::vector<uint8_t>{0x00, 0x04}
+              );
+            }
+
+      - lambda:
+          name: "Afterglow"
+          update_interval: 60s
+          lambda: |-
+            if (initial_run) {
+              id(tuya_mcu).set_boolean_datapoint_value(20, true);
+              id(tuya_mcu).set_enum_datapoint_value(21, 0);
+              id(tuya_mcu).force_set_raw_datapoint_value(
+                64, std::vector<uint8_t>{0x00, 0x05}
+              );
+            }
+
+      - lambda:
           name: "Tricolor"
           update_interval: 60s
           lambda: |-
@@ -97,54 +145,6 @@ light:
               id(tuya_mcu).set_enum_datapoint_value(21, 0);
               id(tuya_mcu).force_set_raw_datapoint_value(
                 64, std::vector<uint8_t>{0x00, 0x15}
-              );
-            }
-
-      - lambda:
-          name: "Sunrise"
-          update_interval: 60s
-          lambda: |-
-            if (initial_run) {
-              id(tuya_mcu).set_boolean_datapoint_value(20, true);
-              id(tuya_mcu).set_enum_datapoint_value(21, 0);
-              id(tuya_mcu).force_set_raw_datapoint_value(
-                64, std::vector<uint8_t>{0x00, 0x01}
-              );
-            }
-
-      - lambda:
-          name: "Sunset"
-          update_interval: 60s
-          lambda: |-
-            if (initial_run) {
-              id(tuya_mcu).set_boolean_datapoint_value(20, true);
-              id(tuya_mcu).set_enum_datapoint_value(21, 0);
-              id(tuya_mcu).force_set_raw_datapoint_value(
-                64, std::vector<uint8_t>{0x00, 0x04}
-              );
-            }
-
-      - lambda:
-          name: "Cloudy Blue Sky"
-          update_interval: 60s
-          lambda: |-
-            if (initial_run) {
-              id(tuya_mcu).set_boolean_datapoint_value(20, true);
-              id(tuya_mcu).set_enum_datapoint_value(21, 0);
-              id(tuya_mcu).force_set_raw_datapoint_value(
-                64, std::vector<uint8_t>{0x00, 0x03}
-              );
-            }
-
-      - lambda:
-          name: "Afterglow"
-          update_interval: 60s
-          lambda: |-
-            if (initial_run) {
-              id(tuya_mcu).set_boolean_datapoint_value(20, true);
-              id(tuya_mcu).set_enum_datapoint_value(21, 0);
-              id(tuya_mcu).force_set_raw_datapoint_value(
-                64, std::vector<uint8_t>{0x00, 0x05}
               );
             }
 
