@@ -54,14 +54,14 @@ The UART runs at 9600 baud.
 
 | Effect | DP64 |
 | --- | --- |
+| Sunrise | `00:01` |
+| Cloudy Blue Sky | `00:03` |
+| Sunset | `00:04` |
+| Afterglow | `00:05` |
 | Tricolor | `00:11` |
 | RGB Cycle High | `00:12` |
 | RGB Cycle Low | `00:14` |
 | Color Shift | `00:15` |
-| Sunrise | `00:01` |
-| Sunset | `00:04` |
-| Cloudy Blue Sky | `00:03` |
-| Afterglow | `00:05` |
 
 ## Flashing
 
