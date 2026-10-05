@@ -7,6 +7,10 @@ board: bk72xx
 difficulty: 4
 ---
 
+## Product Images
+
+![LSC Smart Connect Smart Ceiling Skyscape Light](image.jpg)
+
 ## Product Description
 
 This is the LSC Smart Connect **Smart Ceiling Skyscape Light**, sold by Action. The packaging specifies:
