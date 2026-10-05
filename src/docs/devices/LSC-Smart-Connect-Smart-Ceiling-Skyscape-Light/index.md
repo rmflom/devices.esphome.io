@@ -9,7 +9,7 @@ difficulty: 4
 
 ## Product Images
 
-![LSC Smart Connect Smart Ceiling Skyscape Light](image.jpg)
+![LSC Smart Connect Smart Ceiling Skyscape Light](image.png)
 
 ## Product Description
 
